@@ -79,14 +79,171 @@ This means the email is technically authenticated, but for the wrong domain — 
 
 
 ----
-1. Mismatch in domain: Email from `@consultant.com` but claims Kforce Inc.
-2. Social engineering: Premature “Congratulations!” before interview process.
-3. Unusual background check request via third-party link.
-4. Redirect URL (`afflat3d3.com`) — common in credential/PII harvesting.
-5. Request for sensitive information (background check results + resume + phone).
-6. Authentication (SPF/DKIM/DMARC) passes for consultant.com, not Kforce.
-7. Originating IP: `103.76.241.19` — not tied to Kforce.
-8. Routing through `mout.mail.com` servers — not corporate infrastructure.
-9. Generic, vague signature — “Claire Divas, Hiring Manager.”
+# Phishing Email Analysis Report – Kforce Inc Impersonation
+
+<details>
+<summary>Headers</summary>
+
+Date: Mon, 15 Sep 2025 16:32:01 +0200
+Subject: Re: Congratulations! You Have Been Selected for Kforce Inc
+
+To: Damilola Ajewole damilolaajewolesun@gmail.com
+From: Claire Divas Claire.Divas@consultant.com
+
+Reply-To: Claire.Divas@consultant.com
+Return-Path: Claire.Divas@consultant.com
+
+Sender IP: 103.76.241.19
+Resolve Host: No reverse DNS found (suspicious)
+
+Message-ID: trinity-02aa31d3-e4d2-4e15-8bc4-9d54e4dab056-1757946721461@3c-app-mailcom-lxa05
+
+In-Reply-To: CAL6Dpq8bbVx=LKxGCdzzN4HBxgzQqdMS4wW8N7j6UqU23UkANg@mail.gmail.com
+
+Received Path:
+
+Email sent from 103.76.241.19 → web-mail.mail.com → Google MX → Recipient inbox.
+
+External mail server (mail.com) used instead of Kforce corporate MX.
+
+Authentication Results:
+
+SPF: Pass (authorized sender)
+
+DKIM: Pass
+
+DMARC: Pass (policy: QUARANTINE)
+
+
+</details>
+
+<details>
+<summary>URLs</summary>
+
+- **Malicious URL:** [afflat3d3.com](https://afflat3d3.com/trk/lnk/894935A3-834A-4FD6-BB13-EF5DA75BC6EC/?o=28908&c=918277&a=716387&k=DFA1C0722440B87420F8A55EC1EEFC9C&l=32442&s1=priya)  
+  - Flagged by VirusTotal and urlscan.io
+  - Likely credential harvesting or malware delivery
+  - Unusual routing through external mail.com
+
+
+</details>
+
+<details>
+<summary>Attachments</summary>
+
+- Attachment Name: None  
+- MD5: N/A  
+- SHA1: N/A  
+- SHA256: N/A  
+
+</details>
+
+<details>
+<summary>Description</summary>
+
+The email impersonates Kforce Inc and attempts to trick the recipient with a fake “job selection” message.  
+
+**Key findings:**
+- Sender impersonation: @consultant.com (not Kforce)
+- Social engineering: Premature praise, urgent request
+- Malicious link: afflat3d3.com
+- Data exfiltration: Requests resume, contact info, and screenshots
+- Unusual routing through mail.com
+
+
+</details>
+
+<details>
+<summary>Artifact Analysis</summary>
+
+**Sender Analysis:**  
+- Name: Claire Divas  
+- Email: Claire.Divas@consultant.com  
+- IP: 103.76.241.19, mail.com network  
+- MITRE ATT&CK: T1585.001 – Establish Accounts: Email Accounts  
+
+
+**URL Analysis:**  
+- Malicious URL: afflat3d3.com/trk/lnk/...  
+- MITRE ATT&CK: T1566 – Phishing, T1204.002 – User Execution: Malicious Link  
+
+
+**Attachment Analysis:**  
+- No attachments; attempts data exfiltration via URL
+
+</details>
+
+<details>
+<summary>Social Engineering Techniques</summary>
+
+- Premature praise to entice the user  
+- Urgent request for action  
+- Authority figure: “Hiring Manager”  
+- Data gathering: resume, screenshot, contact info  
+- MITRE ATT&CK: T1566 – Phishing, T1204 – User Execution
+
+
+</details>
+
+<details>
+<summary>Verdict</summary>
+
+- Type: Phishing  
+- Risk Level: High  
+- Recommendation: Do not click links, do not reply, delete email
+
+
+</details>
+
+<details>
+<summary>Defense Actions</summary>
+
+- Block sender domain (@consultant.com) and IP 103.76.241.19  
+- Quarantine/remove email from inboxes  
+- Educate users on phishing and social engineering indicators  
+- Monitor network for attempts to access afflat3d3.com  
+- Report domain/email to threat intelligence (VirusTotal, abuse mail)  
+- Update email security rules to detect similar patterns
+
+
+</details>
+<details>
+<summary>Tools Used</summary>
+
+**Text Editor / Analysis:**  
+- [Sublime Text](https://www.sublimetext.com/) – for raw email and header inspection  
+
+**Operating System / Environment:**  
+- [Ubuntu](https://ubuntu.com/) virtual machine / lab environment  
+
+**MITRE ATT&CK Reference:**  
+- [T1598 – Phishing](https://attack.mitre.org/techniques/T1598/)  
+
+**Sandbox / URL Analysis:**  
+- [Joe Sandbox](https://www.joesandbox.com/analysis/1492476/0/html?utm_source=chatgpt.com)  
+- [PhishTool](https://app.phishtool.com/analysis/68c87bde5d029972a0b0876b)  
+- [Scamadviser – afflat3b3.com](https://www.scamadviser.com/check-website/afflat3b3.com?utm_source=chatgpt.com#google_vignette)  
+- [Gridinsoft Online Virus Scanner – afflat3b3.com](https://gridinsoft.com/online-virus-scanner/url/afflat3b3-com?utm_source=chatgpt.com)  
+- [Scam Detector – afflat3e3.com](https://www.scam-detector.com/validator/afflat3e3-com-review/?utm_source=chatgpt.com)  
+
+**WHOIS / IP Intelligence:**  
+- [DomainTools WHOIS – 74.208.4.201](https://whois.domaintools.com/74.208.4.201)  
+- [AbuseIPDB – 74.208.4.201](https://www.abuseipdb.com/check/74.208.4.201)  
+- [IPInfo – 103.76.241.19](https://ipinfo.io/103.76.241.19#block-abuse)  
+
+**OSINT / People Search:**  
+- [LinkedIn Search – Claire Divas](https://www.linkedin.com/search/results/all/?keywords=Claire%20Divas&origin=GLOBAL_SEARCH_HEADER&sid=ssv)  
+
+**URL Scanning / Threat Intelligence:**  
+- [URLScan.io Result](https://urlscan.io/result/01995550-c451-710f-a78c-fee54f5b37cd/)  
+- [VirusTotal URL Scan](https://www.virustotal.com/gui/url/1e168f5a31a82e8335af723d9fabdc64929eae984c021fa5b8069e31605092d9?nocache=1)  
+
+**Other References / Tools:**  
+- [Microsoft Azure MHA Lab](https://mha.azurewebsites.net/)  
+- [GCHQ GitHub Resources](https://gchq.github.io/C)  
+- [MXToolBox – Email Header Analyzer](https://mxtoolbox.com/Public/Tools/EmailHeaders.aspx?huid=a89beb1d-4545-440e-ae75-03a9f90ceec2)  
+
+</details>
+
 
 
