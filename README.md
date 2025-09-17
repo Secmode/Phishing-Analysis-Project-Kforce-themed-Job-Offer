@@ -1,5 +1,5 @@
 
-# Phishing-Email-Analysis-Soc-Documentation-Report
+# Phishing Investigation: Malicious Job Offer & MITRE Mapping
 
 ## 🔹 Overview
 
