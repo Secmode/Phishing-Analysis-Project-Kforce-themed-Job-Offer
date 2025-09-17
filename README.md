@@ -31,6 +31,48 @@ Email is sent from `@consultant.com` but claims to be from **Kforce Inc.**
 <img width="1885" height="281" alt="image" src="https://github.com/user-attachments/assets/c49df92c-6d4c-42e2-8ca3-ed3ebdd7c3be" />
 
 
+### Phishing Link with Redirect
+**Classic URL obfuscation and redirection.**
+- Google SafeRedirect → Actual pointing to a suspicious Malicious destination website flagged by multiple security platforms.
+<img width="1783" height="305" alt="image" src="https://github.com/user-attachments/assets/7f52c948-c956-4e5d-8966-f2260e8242a0" />
+<img width="1844" height="723" alt="image" src="https://github.com/user-attachments/assets/353bc736-4d14-4f2e-a8ad-90ad60045f64" />
+<img width="1023" height="342" alt="image" src="https://github.com/user-attachments/assets/0be3c96b-8778-4923-9ed7-eba98d470451" />
+<img width="1861" height="393" alt="image" src="https://github.com/user-attachments/assets/89dd6a4a-be5d-4eea-833c-13f6b07e71c0" />
+
+
+### Header Analysis — Pass but Suspicious
+- **SPF, DKIM, and DMARC pass**, but only for consultant.com.
+This means the email is technically authenticated, but for the wrong domain — confirming **domain misuse / business impersonation.**
+<img width="1395" height="789" alt="image" src="https://github.com/user-attachments/assets/8634b29a-57ac-42bc-826b-222d289e8f3a" />
+
+### Originating IP Address
+ - **Mismatch between mail.com webmail (client) location Bangladesh Jhenida and claimed company location.**
+- Received: from mout.mail.com (mout.mail.com. [74.208.4.201]) by mx.google.com ... **Role: This is the sending mail server’s IP — the server that tried to deliver the email to Gmail.**
+- Received: from [103.76.241.19] ([103.76.241.19]) by web-mail.mail.com ... **Role: This is the originating client IP — the device that actually composed or submitted the email.**
+<img width="1857" height="553" alt="Screenshot 2025-09-16 044944" src="https://github.com/user-attachments/assets/33127115-65cd-46a9-a49a-fe7ef6cdfb55" />
+<img width="1444" height="319" alt="image" src="https://github.com/user-attachments/assets/066c7e9b-027d-463b-8f0f-17095bbd83ac" />
+<img width="1697" height="941" alt="image" src="https://github.com/user-attachments/assets/5377662c-456f-4bb2-bf70-78c33ec77d0b" />
+<img width="1406" height="537" alt="image" src="https://github.com/user-attachments/assets/bc46a220-03bf-4ba1-bae5-4469a84338b8" />
+
+## Phishing Email Analysis: Unusual Routing
+
+### Observations
+
+- Sent through `mout.mail.com` → **not corporate infrastructure**.  
+- Origin IP `103.76.241.19` has **no reverse DNS** → suspicious source.  
+- Email came from **mail.com**, not Kforce’s official MX → unusual routing.  
+- SPF/DKIM **pass only validates sending permission**, not legitimacy of content.  
+- Combined with the **malicious link** (`afflat3d3.com`) → strong phishing indicators.
+<img width="793" height="582" alt="image" src="https://github.com/user-attachments/assets/16cf2671-939d-4a92-a2e4-2c2182a6e243" />
+
+
+> **Note:** This analysis is for **educational purposes only**. No conclusions are drawn about the security practices of the impersonated company.
+
+
+
+
+
+
 
 
 
