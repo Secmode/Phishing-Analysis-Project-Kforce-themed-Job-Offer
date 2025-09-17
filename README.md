@@ -5,6 +5,8 @@
 
 This project documents a real-world phishing email I received in Gmail that impersonates a **hiring manager** and asks the recipient to complete an external **“background report.”** The goal is to preserve evidence, extract indicators-of-compromise (IOCs), analyze the email’s delivery and social-engineering techniques, and produce a clear, reproducible forensic workflow that can be shown in a GitHub portfolio.
 <img width="1855" height="873" alt="Screenshot 2025-09-15 210615" src="https://github.com/user-attachments/assets/bd690f4e-3787-4e84-bb01-f78d93f199cc" />
+<img width="1890" height="686" alt="image" src="https://github.com/user-attachments/assets/9c653d71-3835-4374-98a7-23a84a32ed25" />
+
 
 ## Observation
 
@@ -244,6 +246,7 @@ The email impersonates Kforce Inc and attempts to trick the recipient with a fak
 - [MXToolBox – Email Header Analyzer](https://mxtoolbox.com/Public/Tools/EmailHeaders.aspx?huid=a89beb1d-4545-440e-ae75-03a9f90ceec2)  
 
 </details>
+<img width="766" height="674" alt="image" src="https://github.com/user-attachments/assets/0296f8f9-4e43-4c60-82c8-89e2348bfb64" />
 
 
 
