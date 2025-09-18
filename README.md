@@ -66,6 +66,10 @@ This means the email is technically authenticated, but for the wrong domain — 
 - SPF/DKIM **pass only validates sending permission**, not legitimacy of content.  
 - Combined with the **malicious link** (`afflat3d3.com`) → strong phishing indicators.
 <img width="793" height="582" alt="image" src="https://github.com/user-attachments/assets/16cf2671-939d-4a92-a2e4-2c2182a6e243" />
+<img width="882" height="563" alt="image" src="https://github.com/user-attachments/assets/45ec9c96-c675-46cd-ab20-8cf78ef1487a" />
+<img width="1051" height="525" alt="image" src="https://github.com/user-attachments/assets/bf82891f-ea33-4256-b975-fb78f22701f1" />
+
+
 
 
 > **Note:** This analysis is for **educational purposes only**. No conclusions are drawn about the security practices of the impersonated company.
